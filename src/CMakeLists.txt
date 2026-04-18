@@ -19,5 +19,8 @@ target_link_libraries(${PISUBMARINE_MODULE_NAME} INTERFACE PiSubmarine.Control.G
 PiSubmarineAddDependency("https://github.com/PiSubmarine/Control.Lamp.Api.git" "")
 target_link_libraries(${PISUBMARINE_MODULE_NAME} INTERFACE PiSubmarine.Control.Lamp.Api)
 
+PiSubmarineAddDependency("https://github.com/PiSubmarine/Control.Video.Api.git" "")
+target_link_libraries(${PISUBMARINE_MODULE_NAME} INTERFACE PiSubmarine.Control.Video.Api)
+
 PiSubmarineAddDependency("https://github.com/PiSubmarine/Error.Api.git" "")
 target_link_libraries(${PISUBMARINE_MODULE_NAME} INTERFACE PiSubmarine.Error.Api)

@@ -40,6 +40,6 @@ Concrete pilot implementations are expected to consume additional dependencies t
 - `Control.Horizontal.Api`
 - `Control.Gimbal.Api`
 - `Lamp.Api`
-- `Video.Control.Api`
+- `Control.Video.Api`
 
 Those remain constructor-injected implementation details rather than part of the engine-facing polymorphic boundary.
