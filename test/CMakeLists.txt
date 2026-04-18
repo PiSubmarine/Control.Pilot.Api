@@ -5,8 +5,9 @@ include(FetchContent)
 project(${PISUBMARINE_MODULE_NAME}.Test LANGUAGES CXX)
 
 set(${PISUBMARINE_MODULE_NAME}.Test.Sources
-        "PiSubmarine/Control/Pilot/Api/IPilotMockTest.cpp"
-        "PiSubmarine/Control/Pilot/Api/IPilotTest.cpp")
+        "PiSubmarine/Control/Pilot/Api/InputTest.cpp"
+        "PiSubmarine/Control/Pilot/Api/IControllerMockTest.cpp"
+        "PiSubmarine/Control/Pilot/Api/IControllerTest.cpp")
 
 enable_testing()
 
@@ -19,4 +20,8 @@ target_link_libraries(${PISUBMARINE_MODULE_NAME}.Test PRIVATE ${PISUBMARINE_MODU
 target_link_libraries(${PISUBMARINE_MODULE_NAME}.Test PRIVATE ${PISUBMARINE_MODULE_NAME}.Mock)
 target_link_libraries(${PISUBMARINE_MODULE_NAME}.Test PRIVATE GTest::gtest_main)
 include(GoogleTest)
-gtest_discover_tests(${PISUBMARINE_MODULE_NAME}.Test)
+if(CMAKE_CROSSCOMPILING)
+    gtest_add_tests(TARGET ${PISUBMARINE_MODULE_NAME}.Test)
+else()
+    gtest_discover_tests(${PISUBMARINE_MODULE_NAME}.Test)
+endif()
